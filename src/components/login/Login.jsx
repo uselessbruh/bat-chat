@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
-import { doc, setDoc,collection,getDocs,query,where } from "firebase/firestore";
+import { doc, setDoc, collection, getDocs, query, where } from "firebase/firestore";
 import upload from "../../lib/upload";
 
 const Login = () => {
@@ -15,8 +15,8 @@ const Login = () => {
     url: "",
   });
 
-  const [ loading, setLoading ]  = useState(false);
-  const [isSignUp, setIsSignUp]=useState(false)
+  const [loading, setLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false)
 
   const handleAvatar = (e) => {
     if (e.target.files[0]) {
@@ -90,47 +90,47 @@ const Login = () => {
   };
 
   return (
-    
+
     <div className="login">
-      
+
       {isSignUp ? (
-      <div className="item">
-        <img className="logo" src="/favicon.png"></img>
-        <h2>Welcome Back</h2>
-        <form onSubmit={handleLogin}>
-          <input type="text" placeholder="Email" name="email" />
-          <input type="password" placeholder="Password" name="password" />
-          <button disabled={loading}>{loading ? "Loading" : "Sign In"}</button>
-          <p className="sign"
-          onClick={()=>setIsSignUp(false)}>dont have an acount? SignUp</p>
-        </form>
-     
-      </div>
-      ):(
-      <div className="item">
-        <img className="logo" src="/favicon.png"></img>
-        <h2>Create an Account</h2>
-        <form onSubmit={handleRegister}>
-          <label htmlFor="file">
-            <img src={avatar.url || "/avatar.png"} alt="" />
-            Upload an image
-          </label>
-          <input
-            type="file"
-            id="file"
-            style={{ display: "none" }}
-            onChange={handleAvatar}
-          />
-          <input type="text" placeholder="Username" name="username" />
-          <input type="text" placeholder="Email" name="email" />
-          <input type="password" placeholder="Password" name="password" />
-          <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
-          <p className="sign" onClick={()=>setIsSignUp(true)}>already have an acount? SignIn</p>
-        </form>
-      </div>
+        <div className="item">
+          <img className="logo" src="/favicon.png"></img>
+          <h2>Welcome Back</h2>
+          <form onSubmit={handleLogin}>
+            <input type="text" placeholder="Email" name="email" />
+            <input type="password" placeholder="Password" name="password" />
+            <button disabled={loading}>{loading ? "Loading" : "Sign In"}</button>
+            <p className="sign"
+              onClick={() => setIsSignUp(false)}>dont have an acount? SignUp</p>
+          </form>
+
+        </div>
+      ) : (
+        <div className="item">
+          <img className="logo" src="/favicon.png"></img>
+          <h2>Create an Account</h2>
+          <form onSubmit={handleRegister}>
+            <label htmlFor="file">
+              <img src={avatar.url || "/avatar.png"} alt="" />
+              Upload an image
+            </label>
+            <input
+              type="file"
+              id="file"
+              style={{ display: "none" }}
+              onChange={handleAvatar}
+            />
+            <input type="text" placeholder="Username" name="username" />
+            <input type="text" placeholder="Email" name="email" />
+            <input type="password" placeholder="Password" name="password" />
+            <button disabled={loading}>{loading ? "Loading" : "Sign Up"}</button>
+            <p className="sign" onClick={() => setIsSignUp(true)}>already have an acount? SignIn</p>
+          </form>
+        </div>
       )}
-      </div>
- 
+    </div>
+
   );
 };
 
