@@ -38,16 +38,6 @@
 
 ---
 
-## 📸 Screenshots
-
-> _Add your own screenshots in the `public/` folder and update these links!_
-
-| Sign Up Page | Chat UI |
-|-------------|---------|
-| ![Sign Up](public/screenshot-signup.png) | ![Chat](public/screenshot-chat.png) |
-
----
-
 ## 🛠️ Getting Started
 
 ### Prerequisites
